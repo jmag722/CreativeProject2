@@ -1,20 +1,73 @@
 <html>
-    <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script type="text/javascript" src="proj2.js"></script>
-    </head>
-    
-    <body>
-        <p>Enter latitude, then longitude, then search for weather</p>
-        <form >
-        <input type="text" id="latInput" value="" ><br>
-        <input type="text" id="longInput" value=""><br>
-        <input id="submitButton" type="submit" value="Search">
-        </form> 
-        <p>Enter an address</p>
-        <form >
-        <input type="text" id="cityInput" value="" ><br>
-        <input id="cityButton" type="submit" value="Search">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="proj2.js"></script>
+    <!-- Animate -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <style>
+        .container {
+            margin: 5% auto 0 auto;
+            width: 500px;
+            background: rgba(255,255,255,.5);
+            border-radius: 30px;
+        }
+
+        .center-text {
+            text-align: center;
+        }
+
+        .padding {
+            padding: 20px;
+        }
+
+        @keyframes animatedBackground {
+            from { background-position: 0 0; }
+            to { background-position: 100% 0; }
+        }
+
+        #animate-area	{  
+            background-image: url(bg-clouds.png);
+            background-position: 0px 0px;
+            background-repeat: repeat-x;
+            background-size: cover;
+
+            animation: animatedBackground 50s linear infinite;
+        }
+    </style>
+</head>
+
+<body id="animate-area">
+    <div class="container padding center-text animated fadeIn delay-2s">
+        <h2>Air Quality Search</h2>
+        <form>
+            <div class="input-field">
+                <label for="cityInput">Address</label>
+                <input type="text" id="cityInput" value="">
+            </div>
+            <input id="cityButton" type="submit" value="Search">
         </form>
-    </body>
+        <!-- <form class="col s12">
+            <div class="row">
+                <div class="input-field col s6">
+                    <label for="latInput">Latitude</label>
+                    <input type="text" id="latInput" value=""><br>
+                </div>
+                <div class="input-field col s6">
+                    <label for="longInput">Longitude</label>
+                    <input type="text" id="longInput" value=""><br>
+                </div>
+            </div>
+            <div class="input-field">
+                <input id="submitButton" type="submit" value="Search">
+            </div>
+        </form> -->
+    </div>
+</body>
+
 </html>
