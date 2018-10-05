@@ -19,8 +19,6 @@ $(document).ready(function () {
         });
     });
 
-
-
     $("#cityButton").click(function (e) {
         e.preventDefault();
         var city = $("#cityInput").val();
@@ -33,14 +31,16 @@ $(document).ready(function () {
             dataType: "json",
             success: function (parsed_json) {
                 console.log(parsed_json);
+                const location = parsed_json.results[0].locations[0];
+                let address = `${location.street} ${location.adminArea6} ${location.adminArea5} ${location.adminArea4} ${location.adminArea3} ${location.adminArea1}`;
                 var lat = parsed_json['results'][0]['locations'][0]["latLng"]['lat'];
                 var long = parsed_json['results'][0]['locations'][0]["latLng"]['lng'];
-                getSmog(lat, long);
+                getSmog(lat, long, address);
             }
         });
     });
 
-    function getSmog(lati, longi) {
+    function getSmog(lati, longi, address) {
         var key = "4b089295f5434035b91ef9b7e685f564";
         var myurl = "https://api.breezometer.com/baqi/?";
         myurl += "lat=" + lati;
@@ -56,6 +56,8 @@ $(document).ready(function () {
                 var color = parsed_json["breezometer_color"];
                 var description = parsed_json["breezometer_description"];
                 var healthwarning = parsed_json["random_recommendations"]['health'];
+
+                $("#address").text(address);
                 $("#aqi").html(aqi);
                 $("#description").html(description);
                 $("#health").html(healthwarning);
