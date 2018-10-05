@@ -33,6 +33,10 @@
             padding: 20px;
         }
 
+        #output {
+            display: none;
+        }
+
         @keyframes animatedBackground {
             from { background-position: 0 0; }
             to { background-position: 100% 0; }
@@ -59,27 +63,12 @@
             </div>
             <input id="cityButton" type="submit" value="Search">
         </form>
-        
+
         <div id="output" class="container2 padding center-text">
             <h1 id='aqi'></h1>
             <p id='description'></p>
             <p id='health'></p>
         </div>
-        <!-- <form class="col s12">
-            <div class="row">
-                <div class="input-field col s6">
-                    <label for="latInput">Latitude</label>
-                    <input type="text" id="latInput" value=""><br>
-                </div>
-                <div class="input-field col s6">
-                    <label for="longInput">Longitude</label>
-                    <input type="text" id="longInput" value=""><br>
-                </div>
-            </div>
-            <div class="input-field">
-                <input id="submitButton" type="submit" value="Search">
-            </div>
-        </form> -->
     </div>
 </body>
 
